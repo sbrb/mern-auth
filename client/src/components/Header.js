@@ -64,7 +64,7 @@ export default function Header() {
                     <NavLink to="/"><h1>Tez Programmer</h1></NavLink>
                     <div className="avtar">
                         {
-                            logindata.ValidUserOne ? <Avatar style={{ background: "salmon", fontWeight: "bold", textTransform: "capitalize" }} onClick={handleClick}>{logindata.ValidUserOne.name[0].toUpperCase()}</Avatar> :
+                            logindata.validUserOne ? <Avatar style={{ background: "salmon", fontWeight: "bold", textTransform: "capitalize" }} onClick={handleClick}>{logindata.validUserOne.name[0].toUpperCase()}</Avatar> :
                                 <Avatar style={{ background: "blue" }} onClick={handleClick} />
                         }
                     </div>
@@ -78,7 +78,7 @@ export default function Header() {
                         }}
                     >
                         {
-                            logindata.ValidUserOne ? (
+                            logindata.validUserOne ? (
                                 <>
                                     <MenuItem onClick={() => {
                                         goDash()

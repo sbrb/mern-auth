@@ -129,7 +129,7 @@ router.post("/sendpasswordlink", async (req, res) => {
         const foundUser = await userModel.findOne({ email });
         // token generate for reset password
         const token = jwt.sign({ _id: foundUser._id }, secretKey, {
-            expiresIn: "120s"
+            expiresIn: "300s"
         });
         const setUserToken = await userModel.findByIdAndUpdate({ _id: foundUser._id }, { verifytoken: token }, { new: true });
         if (setUserToken) {
@@ -137,7 +137,7 @@ router.post("/sendpasswordlink", async (req, res) => {
                 from: process.env.EMAIL,
                 to: email,
                 subject: "Sending Email For password Reset",
-                text: `This Link Valid For 2 MINUTES ${baseUrl}/forgotpassword/${foundUser.id}/${setUserToken.verifytoken}`
+                text: `This Link Valid For 5 MINUTES ${baseUrl}/forgotpassword/${foundUser.id}/${setUserToken.verifytoken}`
             }
 
             transporter.sendMail(mailOptions, (error, info) => {

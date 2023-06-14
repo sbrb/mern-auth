@@ -52,7 +52,7 @@ export default function PasswordReset() {
                         <h2>Forgot your password?</h2>
                     </div>
 
-                    {message ? <p style={{ color: "green", fontWeight: "bold" }}>Password reset link has been send Successfully in Your Email</p> : ""}
+                    {message ? <p style={{ color: "green", fontWeight: "bold" }}>Password reset link send Successfully.</p> : ""}
                     <form>
                         <div className="form_input">
                             <input type="email" value={email} onChange={setVal} name="email" id="email" placeholder='Email' />
